@@ -34,7 +34,7 @@
         $usertype = mysqli_real_escape_string($con, $usertype);
        
         $query    = "INSERT into `users` (name, phnum, email, username, password, usertype)
-                     VALUES ('$name', '$phnum', '$email', '$username','" . md5($password) . "', '$usertype')";
+                     VALUES ('$name', '$phnum', '$email', '$username','$password', '$usertype')";
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
