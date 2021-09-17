@@ -21,7 +21,10 @@
                      AND password='$password' AND usertype='$usertype'";
         $result = mysqli_query($con, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
-        if ($rows == 1 and $usertype=='Judge') {
+        if ($username=='Admin' and $password=='Admin' and $usertype=='Admin'){
+            header("Location: home_admin.php");
+        }
+        else if ($rows == 1 and $usertype=='Judge') {
             // Redirect to user dashboard page
             header("Location: home_judge.php");}
         elseif ($rows == 1 and $usertype=='Participant'){
@@ -50,6 +53,7 @@
         <input type="password" class="login-input" name="password" placeholder="Password"/>
         <input type="radio" id="usertype" name="usertype" value="Judge"> <label for="Judge">Judge</label>
         <input type="radio" id="usertype" name="usertype" value="Participant"> <label for="Participant">Participant</label>
+        <input type="radio" id="usertype" name="usertype" value="Admin"> <label for="Admin">Admin</label>
         <input type="submit" value="Login" name="submit" class="login-button"/>
         <p class="link"><a href="registration.php">Registration</a></p>
   </form>
