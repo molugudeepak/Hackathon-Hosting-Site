@@ -13,6 +13,7 @@
 </div>
 </header>
 <?php
+    include("auth_session.php");
     require('db.php');
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['event_name'])) {
@@ -46,6 +47,11 @@
         }
     } else {
 ?>
+<form align="right" name="form1" method="post" action="logout.php">
+  <label>
+  <input name="submit2" type="submit" id="submit2" value="Log out">
+  </label>
+</form>
 <h1 style="font-size:45px;text-align:center;color:#FF0000">Hackathon Hosting Site </h1>
     <form class="form" action="" method="post">
         <h1 class="login-title">Create an Event</h1>

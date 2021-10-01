@@ -8,6 +8,7 @@
 <body>
 <?php
     require('db.php');
+    session_start();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']);    // removes backslashes
@@ -22,12 +23,15 @@
         $result = mysqli_query($con, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
         if ($username=='Admin' and $password=='Admin' and $usertype=='Admin'){
+            $_SESSION['username'] = $username;
             header("Location: home_admin.php");
         }
         else if ($rows == 1 and $usertype=='Judge') {
             // Redirect to user dashboard page
+            $_SESSION['username'] = $username;
             header("Location: home_judge.php");}
         elseif ($rows == 1 and $usertype=='Participant'){
+            $_SESSION['username'] = $username;
             header("Location: home_participant.php");
         }
         else {
