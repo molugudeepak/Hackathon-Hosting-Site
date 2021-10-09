@@ -10,7 +10,7 @@
     <nav>
         <ul>
             <li><a href=home_judge.php>Projects</a>&nbsp;&nbsp;</li>
-            <li><a href=scores.php>Scores</a>&nbsp;&nbsp;</li>
+            <li><a href=submission.php>Submission</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
@@ -20,6 +20,6 @@
 </form>
 </head>
 <body>
-<p>This is Homepage for Judge</p>
+<p>This is Results Page</p>
 </body>
 </html>

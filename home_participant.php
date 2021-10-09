@@ -2,21 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Registration</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-  
-<link rel="stylesheet" href="style1.css" />
-<header>
-<div class="container">
+    <link rel="stylesheet" href="style1.css"/>
+    <header>
+  <div class="container">
+    <nav>
+        <ul>
+            <li><a href=Submission.php>Submission</a>&nbsp;&nbsp;</li>
+            <li><a href=results.php>Results</a>&nbsp;&nbsp;</li>
+            <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
+        </ul>
+    </nav>
+        
 </div>
 </header>
-<form align="right" name="form1" method="post" action="logout.php">
-  <label>
-  <input name="submit2" type="submit" id="submit2" value="log out">
-  </label>
-</form>
+</head>
+<body>
 <h1 style="font-size:45px;text-align:center;color:#FF0000">Hackathon Hosting Site </h1>
 <div class="form">
 <h1 class="login-title">Register for an event </h1> 
@@ -41,7 +43,7 @@
     echo "<td>" . $row['event_location'] . "</td>";
     echo "<td>" . $row['event_startdate'] . "</td>";
     echo "<td>" . $row['event_enddate']. "</td>";
-    echo "<td> <input type='submit' name='Regsiter' value='Register'></td>"; 
+    echo "<td> <input type='submit' name='Regsiter' value='Register' action></td>"; 
     
     
     echo "</tr>";
