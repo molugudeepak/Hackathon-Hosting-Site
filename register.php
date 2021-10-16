@@ -9,7 +9,6 @@
   <div class="container">
     <nav>
         <ul>
-            <li><a href="register.php">Register</a>&nbsp;&nbsp;</li>
             <li><a href=Submission.php>Submission</a>&nbsp;&nbsp;</li>
             <li><a href=results.php>Results</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
@@ -28,30 +27,22 @@
     require('db.php');
     // When form submitted, insert values into the database.
     $result = mysqli_query($con,"SELECT * FROM events");
-   
-    echo "<table border='1'> 
-    <tr>
-    <th>Event Name</th>
-    <th>Venue</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-    </tr>";
+    echo "<select name=student value=''>Student Name</option>";
     while($row = mysqli_fetch_array($result))
     {
-    echo "<tr>";
-    echo "<td>" . $row['event_name'] . "</td>";
-    echo "<td>" . $row['event_location'] . "</td>";
-    echo "<td>" . $row['event_startdate'] . "</td>";
-    echo "<td>" . $row['event_enddate']. "</td>";
-    
-    
-    
-    echo "</tr>";
+        echo "<option value=event_name>$row[event_name]</option>"; 
     }
-    echo "</table>";
-
-
 ?>
+    <form class="form" action="" method="post">
+        
+        <input type="text" class="login-input" name="team_name" placeholder="Team Name" required />
+        <input type="text" class="login-input" name="team_mate1" placeholder="Add Team Mate"/>
+        <input type="text" class="login-input" name="team_mate2" placeholder="Add Team Mate"/>
+        <input type="text" class="login-input" name="team_mate3" placeholder="Add Team Mate"/>
+        <input type="submit" name="submit" value="Register" class="login-button">
+        
+    </form>
+    </div>
 </div>
 </body>
 </html>
