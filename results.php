@@ -9,7 +9,7 @@
   <div class="container">
     <nav>
         <ul>
-            <li><a href=home_judge.php>Projects</a>&nbsp;&nbsp;</li>
+            <li><a href=home_participant.php>Projects</a>&nbsp;&nbsp;</li>
             <li><a href=submission.php>Submission</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
