@@ -32,31 +32,44 @@
         echo "<option value=$row[event_name]>$row[event_name]</option>"; 
     }
     ?>
-    <input type="submit" name="submit" value="View Projects" class="login-button">
+    <input type="submit" name="submit" value="View Projects"class="login-button">
         
         </form>
         <div class= form>
         <h1 class="login-title">Teams </h1> 
         <?php
         if (isset($_REQUEST['event_name'])) {
-            $result = mysqli_query($con,"SELECT * FROM teams");
-       
+            $result = mysqli_query($con,"SELECT * FROM submissions");
+            $rows = mysqli_num_rows($result);
+            if ($rows >=1){
             echo "<table border='1'> 
             <tr>
             <th>Team Name</th>
-            <th>Team Leader</th>
+            <th>GitHub URL</th>
+            <th>Demo URL</th>
             </tr>";
+
             while($row = mysqli_fetch_array($result))
             {
             echo "<tr>";
             echo "<td>" . $row['team_name'] . "</td>";
-            echo "<td>" . $row['team_leader'] . "</td>";
+            echo "<td>" . $row['github_url'] . "</td>";
+            echo "<td>" . $row['demo_url'] . "</td>";
             echo "</tr>";
             }
             echo "</table>";
         
-        
+            }
+        else{
+            echo "<table border='1'> 
+            <tr>
+            <th>No teams registered</th>
+            </tr>";
+
         }
+        }
+
+    
     ?>
 
 </div>
