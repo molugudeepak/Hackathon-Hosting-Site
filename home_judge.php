@@ -35,7 +35,7 @@
     <input type="submit" name="submit" value="View Projects"class="login-button">
         
         </form>
-        <div class= form>
+        <div class= "form1">
         <h1 class="login-title">Teams </h1> 
         <?php
         if (isset($_REQUEST['event_name'])) {
@@ -47,15 +47,21 @@
             <th>Team Name</th>
             <th>GitHub URL</th>
             <th>Demo URL</th>
+            <th>Documentation</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
             {
-            echo "<tr>";
-            echo "<td>" . $row['team_name'] . "</td>";
-            echo "<td>" . $row['github_url'] . "</td>";
-            echo "<td>" . $row['demo_url'] . "</td>";
-            echo "</tr>";
+            ?>
+            <tr>
+            <td><?php echo $row['team_name'] ?></td>
+            <td><?php echo $row['github_url'] ?></td>
+            <td><?php echo $row['demo_url'] ?></td>
+            <?php 
+            ?>
+            <td> <a href='download.php'><?php echo $row['file_name'] ?></a></td>
+            <tr>
+        <?php
             }
             echo "</table>";
         
