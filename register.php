@@ -12,6 +12,7 @@
             <li><a href=home_participant.php>Home</a>&nbsp;&nbsp;</li>
             <li><a href=Submission.php>Submission</a>&nbsp;&nbsp;</li>
             <li><a href=results.php>Results</a>&nbsp;&nbsp;</li>
+            <li><a href="ranks.php">Rankings</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
@@ -24,11 +25,11 @@
     global $event_name;
     require('db.php');
     include("auth_session.php");
+    global $username;
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['team_name'])) {
         // removes backslashes
         $username = $_SESSION['username'];
-        $query1 = "SELECT * FROM `users` WHERE username='$username'";
         $result1 = mysqli_query($con, $query1);
         $row =  mysqli_fetch_array($result1);
         //escapes special characters in a string

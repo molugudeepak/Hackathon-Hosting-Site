@@ -12,6 +12,7 @@
             <li><a href="register.php">Register</a>&nbsp;&nbsp;</li>
             <li><a href=Submission.php>Submission</a>&nbsp;&nbsp;</li>
             <li><a href=results.php>Results</a>&nbsp;&nbsp;</li>
+            <li><a href="ranks.php">Rankings</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
