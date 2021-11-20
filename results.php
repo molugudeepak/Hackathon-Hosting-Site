@@ -11,6 +11,7 @@
         <ul>
             <li><a href="register.php">Register</a>&nbsp;&nbsp;</li>
             <li><a href=Submission.php>Submission</a>&nbsp;&nbsp;</li>
+            <li><a href="ranks.php">Rankings</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
@@ -26,33 +27,33 @@
     include("auth_session.php");
     require('db.php');
     global $team_name;
-    $query2 = mysqli_query($con,"SELECT * FROM scores ORDER by total desc");
+    $username = $_SESSION['username'];
+    $query = "SELECT * FROM `teams` WHERE name='$username'";
+    $result = mysqli_query($con, $query);
+    $row =  mysqli_fetch_array($result);
+    $team_name = $row['team_name'];
+    $query2 = mysqli_query($con,"SELECT * FROM scores where team_name='$team_name'");
     echo "<table border='1'> 
     <tr>
-    <th>Team Name</th>
-    <th>Rank </th>
     <th>Total Score</th>
     <th>Score for Code </th>
     <th>Score for Presentation </th>
     <th>Score for Demo </th>
     <th>Score for Documentation </th>
     <th>Score for UI </th>
+    <th>Rank </th>
     </tr>";
-    $rank=1;
     while($row = mysqli_fetch_array($query2))
     {
     echo "<tr>";
-    echo "<td>" . $row['team_name'] . "</td>";
-    echo "<td>" . $rank. "</td>";
-    echo "<td>" . $row['total'] . "</td>";
     echo "<td>" . $row['factor1'] . "</td>";
     echo "<td>" . $row['factor2']. "</td>";
     echo "<td>" . $row['factor3'] . "</td>";
     echo "<td>" . $row['factor4']. "</td>";
-    echo "<td>" . $row['factor5'] . "</td>";    
+    echo "<td>" . $row['factor5'] . "</td>"; 
+    echo "<td>" . $row['total'] . "</td>";   
     
     echo "</tr>";
-    $rank++;
     }
     echo "</table>";
 
