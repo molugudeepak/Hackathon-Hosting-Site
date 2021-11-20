@@ -22,7 +22,7 @@
 <body>
 <h1 style="font-size:45px;text-align:center;color:#FF0000">Hackathon Hosting Site </h1>
 <div class="form">
-<h1 class="login-title">Register for an event </h1> 
+<h1 class="login-title">New Events</h1> 
 <?php
     include("auth_session.php");
     require('db.php');

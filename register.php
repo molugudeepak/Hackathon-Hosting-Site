@@ -21,6 +21,7 @@
 
 </head>
 <body><?php
+    global $event_name;
     require('db.php');
     include("auth_session.php");
     // When form submitted, insert values into the database.
@@ -30,8 +31,6 @@
         $query1 = "SELECT * FROM `users` WHERE username='$username'";
         $result1 = mysqli_query($con, $query1);
         $row =  mysqli_fetch_array($result1);
-        $name = $row[name];
-        $event_name = stripslashes($_REQUEST['event_name']);
         //escapes special characters in a string
         $event_name = mysqli_real_escape_string($con, $event_name);
         $team_name = stripslashes($_REQUEST['team_name']);

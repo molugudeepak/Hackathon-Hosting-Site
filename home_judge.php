@@ -39,9 +39,13 @@
         <h1 class="login-title">Teams </h1> 
         <?php
         if (isset($_REQUEST['event_name'])) {
-            $result = mysqli_query($con,"SELECT * FROM submissions");
+
+            $event_name = stripslashes($_REQUEST['event_name']);
+            //escapes special characters in a string
+            $event_name = mysqli_real_escape_string($con, $event_name);
+            $result = mysqli_query($con,"SELECT * FROM submissions WHERE event_name='$event_name'");
             $rows = mysqli_num_rows($result);
-            if ($rows >=1){
+            if ($rows >0){
             echo "<table border='1'> 
             <tr>
             <th>Team Name</th>
@@ -59,10 +63,13 @@
             <td><?php echo $row['demo_url'] ?></td>
             <?php 
             ?>
-            <td> <a href='download.php'><?php echo $row['file_name'] ?></a></td>
+            
+            <td> <a href="download.php?file_name=<?$row['file_name']?>"><?php echo  $row['file_name']?></a></td>
+
             <tr>
         <?php
-            }
+    
+        }
             echo "</table>";
         
             }

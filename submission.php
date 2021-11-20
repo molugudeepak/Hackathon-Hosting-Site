@@ -15,15 +15,12 @@ if (isset($_POST['submit'])){
     $query = "SELECT * FROM `teams` WHERE name='$username'";
     $result = mysqli_query($con, $query);
     $row =  mysqli_fetch_array($result);
-    $event_name = $row[event_name];
-    
-    $team_name = $row[team_name];
+    $event_name = $row['event_name'];
+    $team_name = $row['team_name'];
     $demoUrl = stripslashes($_REQUEST['demoUrl']);
     $demoUrl = mysqli_real_escape_string($con, $demoUrl);
     $githubUrl = stripslashes($_REQUEST['githubUrl']);
     $githubUrl = mysqli_real_escape_string($con, $githubUrl);
-    echo $githubUrl;
-
     $filename = $_FILES['documentation']['name'];
 
     // destination of the file on the server
