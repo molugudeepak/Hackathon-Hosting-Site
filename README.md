@@ -17,11 +17,47 @@ HTML5, CSS3, PHP, MySQL, XAMPP Server, Git, GitHub, VS Code
  3. Start the Tomcat, Apache and MySQL services in XAMPP contorl panel
  4. Create 'hackathon hosting site' in PHPmyAdmin.
  5. Create the following tables in the above database <br>
-      i. Events table: 
+      <b>i.Events table</b>: 
       CREATE TABLE events (
     event_name VARCHAR(100) NOT NULL,
     event_location VARCHAR(100) NOT NULL,
     event_startdate DATE NOT NULL,
-    event_enddate DATE NOT NULL);
+    event_enddate DATE NOT NULL);<br>
+     <b>ii. Users table:</b>
+     CREATE TABLE users (
+    name VARCHAR(100) NOT NULL,
+    phnum VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    username VARCHAR(10) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    usertype VARCHAR(100) NOT NULL); <br>
+    <b>iii. Teams table:</b>
+    CREATE TABLE teams (
+    name VARCHAR(100) NOT NULL,
+    team_name VARCHAR(100) NOT NULL  UNIQUE,
+    team_member1 VARCHAR(100),
+    team_member2 VARCHAR(100), 
+    team_member3 VARCHAR(100));<br>
+    <b>iv. Submission table:</b>
+    CREATE TABLE submissions (
+    username VARCHAR(100) NOT NULL UNIQUE,
+    team_name VARCHAR(100) NOT NULL  UNIQUE,
+    event_name VARCHAR(100),
+    github_url VARCHAR(100), 
+    demo_url VARCHAR(100));<br>
+    <b>v. Scores table:</b>
+    CREATE TABLE scores(
+    team_name VARCHAR(100) NOT NULL  UNIQUE,
+    factor1 INT NOT NULL,
+    factor2 INT NOT NULL,
+    factor3 INT NOT NULL,
+    factor4 INT NOT NULL,
+    factor5 INT NOT NULL
+);
+
+
+
+
+
 
 
